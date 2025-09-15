@@ -10,24 +10,33 @@
 // @grant        GM_listValues
 // ==/UserScript==
 
-    if (!window.denemeASD) {
-        window.denemeASD = {};
+class DenemeASD {
+    constructor() {
+        if (!window.denemeASD) {
+            window.denemeASD = this;
+        }
+        console.log("asd");
+        return window.denemeASD;
     }
 
-    denemeASD.GMsetValue = function(a,d) {
-        return GM_setValue(a,d);
-    };
-    
-    denemeASD.GMgetValue = function(anahtar, varsayilanDeger = null) {
-        return GM_getValue(anahtar, varsayilanDeger);
-    };
-    
-    denemeASD.GMdeleteValue = function(anahtar) {
-        return GM_deleteValue(anahtar);
-    };
-    
-    denemeASD.GMlistValues = function() {
+    asd(key, value) {
+        return GM_setValue(key, value);
+    }
+
+    asdw(key, defaultValue = null) {
+        return GM_getValue(key, defaultValue);
+    }
+
+    asdwe(key) {
+        return GM_deleteValue(key);
+    }
+
+    asdweq() {
         return GM_listValues();
-    };
-    
-    console.log("asd");
+    }
+
+}
+
+new DenemeASD();
+//DenemeASD.init();
+
